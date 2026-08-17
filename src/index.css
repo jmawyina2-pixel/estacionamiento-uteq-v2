@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  
+  --uteq-green: #15803d;
+  --uteq-dark: #14532d;
+  --brand-blue: #0284c7;
+  
+  --status-free-bg: #dcfce7;
+  --status-free-text: #166534;
+  --status-free-border: #22c55e;
+  
+  --status-busy-bg: #fee2e2;
+  --status-busy-text: #991b1b;
+  --status-busy-border: #ef4444;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Glass & Card components */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Navbar */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--uteq-dark);
+  text-decoration: none;
+}
+
+.nav-badge {
+  background: #ecfdf5;
+  color: var(--uteq-green);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid #a7f3d0;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-left: 1.5rem;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--uteq-green);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--uteq-green);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--uteq-dark);
+}
+
+.btn-secondary {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #334155;
+}
+
+/* Grid & Columns */
+.columnas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .columnas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .columnas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.columna-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.columna-header {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Slot item */
+.slot-item {
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.slot-item:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.97);
+}
+
+.slot-libre {
+  background: var(--status-free-bg);
+  border-color: var(--status-free-border);
+  color: var(--status-free-text);
+}
+
+.slot-ocupado {
+  background: var(--status-busy-bg);
+  border-color: var(--status-busy-border);
+  color: var(--status-busy-text);
+}
+
+.slot-id {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.slot-meta {
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
